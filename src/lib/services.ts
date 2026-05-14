@@ -1,5 +1,21 @@
 import {
-  Map, Mountain, Plane, Sprout, Camera, Wrench, Radar, Box, Ruler, Layers, Eye, Compass,
+  Map,
+  Mountain,
+  Plane,
+  Sprout,
+  Camera,
+  Wrench,
+  Radar,
+  Box,
+  Ruler,
+  Layers,
+  Eye,
+  Compass,
+  LayoutDashboard,
+  Building2,
+  Landmark,
+  FileSpreadsheet,
+  MountainSnow,
 } from "lucide-react";
 
 import lidarImg from "@/assets/LiDAR Surveying.png";
@@ -14,22 +30,124 @@ import filmImg from "@/assets/Aerial Filming.png";
 import survImg from "@/assets/Surveillance.png";
 import slamImg from "@/assets/SLAM Survey.png";
 import repairImg from "@/assets/Drone Servicing & Repair.png";
+import demImg from "@/assets/Digital Elevation Models.png";
+import settingOutImg from "@/assets/Infrastructure Setting Out.png";
+import commercialImg from "@/assets/Commercial Projects.png";
+import contoursImg from "@/assets/Generating Contours.png";
+import dtmImg from "@/assets/Digital Terrain Model.png";
 
 export const services = [
-  { icon: Mountain, title: "LiDAR Surveying", desc: "High-density point clouds for terrain, vegetation and infrastructure modelling.", image: lidarImg },
-  { icon: Map, title: "Topographic Survey", desc: "Precision elevation and contour data for engineering and planning.", image: topoImg },
-  { icon: Layers, title: "Orthomosaic Mapping", desc: "Geometrically corrected aerial maps for measurement and analysis.", image: orthoImg },
-  { icon: Box, title: "3D Modelling", desc: "Photo-realistic and CAD-ready 3D models of sites and assets.", image: modelImg },
-  { icon: Ruler, title: "Volumetric & Stockpile", desc: "Accurate volume and area computation for mining and quarry sites.", image: volumeImg },
-  { icon: Compass, title: "Cadastral & Engineering", desc: "Land surveys and infrastructure setting out with survey-grade accuracy.", image: cadastralImg },
-  { icon: Sprout, title: "Crop Spraying", desc: "Precision agriculture with spray drones for higher yield and lower input cost.", image: cropImg },
-  { icon: Radar, title: "Multispectral Surveying", desc: "Crop health, mineral exploration and environmental monitoring.", image: multispecImg },
-  { icon: Camera, title: "Aerial Filming", desc: "Cinematic aerial photography and videography for content and inspection.", image: filmImg },
-  { icon: Eye, title: "Surveillance", desc: "Aerial monitoring for security, conservation and event management.", image: survImg },
-  { icon: Plane, title: "SLAM Survey", desc: "GPS-denied indoor and underground 3D mapping using SLAM-equipped drones.", image: slamImg },
-  { icon: Wrench, title: "Drone Servicing & Repair", desc: "Maintenance, repair and repurposing of UAV systems.", image: repairImg },
+  {
+    icon: Mountain,
+    title: "LiDAR Surveying",
+    desc: "High-density point clouds for terrain, vegetation and infrastructure modelling.",
+    image: lidarImg,
+  },
+  {
+    icon: Map,
+    title: "Topographic Survey",
+    desc: "Precision elevation and contour data for engineering and planning.",
+    image: topoImg,
+  },
+  {
+    icon: Layers,
+    title: "Orthomosaic Mapping",
+    desc: "Geometrically corrected aerial maps for measurement and analysis.",
+    image: orthoImg,
+  },
+  {
+    icon: Box,
+    title: "3D Modelling",
+    desc: "Photo-realistic and CAD-ready 3D models of sites and assets.",
+    image: modelImg,
+  },
+  {
+    icon: Ruler,
+    title: "Volumetric & Stockpile",
+    desc: "Accurate volume and area computation for mining and quarry sites.",
+    image: volumeImg,
+  },
+  {
+    icon: Compass,
+    title: "Cadastral & Engineering",
+    desc: "Land surveys and infrastructure setting out with survey-grade accuracy.",
+    image: cadastralImg,
+  },
+  {
+    icon: Sprout,
+    title: "Crop Spraying",
+    desc: "Precision agriculture with spray drones for higher yield and lower input cost.",
+    image: cropImg,
+  },
+  {
+    icon: Radar,
+    title: "Multispectral Surveying",
+    desc: "Crop health, mineral exploration and environmental monitoring.",
+    image: multispecImg,
+  },
+  {
+    icon: Camera,
+    title: "Aerial Filming",
+    desc: "Cinematic aerial photography and videography for content and inspection.",
+    image: filmImg,
+  },
+  {
+    icon: Eye,
+    title: "Surveillance",
+    desc: "Aerial monitoring for security, conservation and event management.",
+    image: survImg,
+  },
+  {
+    icon: Plane,
+    title: "SLAM Survey",
+    desc: "GPS-denied indoor and underground 3D mapping using SLAM-equipped drones.",
+    image: slamImg,
+  },
+  {
+    icon: Wrench,
+    title: "Drone Servicing & Repair",
+    desc: "Maintenance, repair and repurposing of UAV systems.",
+    image: repairImg,
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Digital Elevation Models",
+    desc: "High-resolution DEM/DTM generation for terrain analysis and flood modelling.",
+    image: demImg,
+  },
+  {
+    icon: Building2,
+    title: "Infrastructure Setting Out",
+    desc: "Precise layout and staking for roads, buildings, pipelines, and utilities.",
+    image: settingOutImg,
+  },
+  {
+    icon: Landmark,
+    title: "Commercial Projects",
+    desc: "End-to-end aerial solutions for real estate, mining, and large-scale commercial developments.",
+    image: commercialImg,
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "Generating Contours",
+    desc: "Topographic contour generation from LiDAR and photogrammetric data for engineering and GIS applications.",
+    image: contoursImg,
+  },
+  {
+    icon: MountainSnow,
+    title: "Digital Terrain Model",
+    desc: "Accurate 3D terrain surface models derived from aerial survey data for planning and analysis.",
+    image: dtmImg,
+  },
 ] as const;
 
 export const industries = [
-  "Mining", "Construction", "Agriculture", "Engineering", "Conservation", "Research", "Infrastructure", "Surveillance",
+  "Mining",
+  "Construction",
+  "Agriculture",
+  "Engineering",
+  "Conservation",
+  "Research",
+  "Infrastructure",
+  "Surveillance",
 ];

@@ -20,10 +20,12 @@ export function useWebpSupport() {
 }
 
 /**
- * Component to display images with WebP support
+ * Component to display images with WebP support detection.
+ * Pass WebP source via srcWebp prop; falls back to src for unsupported browsers.
  */
 export function PictureImage({
   src,
+  srcWebp,
   alt,
   className = "",
   width,
@@ -31,15 +33,18 @@ export function PictureImage({
   loading = "lazy",
 }: {
   src: string;
+  srcWebp?: string;
   alt: string;
   className?: string;
   width?: number | string;
   height?: number | string;
   loading?: "eager" | "lazy";
 }) {
+  const supportsWebp = useWebpSupport();
+
   return (
     <img
-      src={src}
+      src={supportsWebp && srcWebp ? srcWebp : src}
       alt={alt}
       className={className}
       width={width}
