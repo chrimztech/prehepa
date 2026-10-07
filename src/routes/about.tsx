@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, Award } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Check, Award, ArrowRight, Handshake } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PictureImage } from "@/lib/image-utils";
-import cropImg from "@/assets/crop-spraying.jpg";
-import onijahImg from "@/assets/Onijah_Zani_UAV_Pilot_Accountable_Manager.png";
-import madalitsoImg from "@/assets/Madalitso_Zulu_Company_Secretary.png";
-import mosesImg from "@/assets/Moses_Chilunjika_ICT_Specialist_Marketing_Strategist.png";
-import eliasImg from "@/assets/Elias_Mwendanei_Digital_Content_Creator.png";
-import adinoImg from "@/assets/Adino_Bbuna_Digital_Content_Creator.png";
-import samsonImg from "@/assets/Samson_Musonda_Marketing.png";
+import { industries, investmentPriorities } from "@/lib/services";
+import cropImg from "@/assets/agriculture-drone.webp";
+import onijahImg from "@/assets/team/onijah-zani.webp";
+import madalitsoImg from "@/assets/team/madalitso-zulu.webp";
+import mosesImg from "@/assets/team/moses-chilunjika.webp";
+import eliasImg from "@/assets/team/elias-mwendanei.webp";
+import adinoImg from "@/assets/team/adino-bbuna.webp";
+import samsonImg from "@/assets/team/samson-musonda.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -18,8 +20,9 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Forward-looking Zambian aerospace and drone company. Meet the team and our mission.",
+          "Rehepa Aerospace Ltd is a Zambian aerospace and drone-technology company delivering aerial data, surveying, mapping, inspection and monitoring solutions. Meet the team.",
       },
+      { property: "og:title", content: "About | Rehepa Aerospace" },
     ],
   }),
   component: AboutPage,
@@ -65,23 +68,38 @@ function AboutPage() {
             A Zambian aerospace company built for the future.
           </h1>
           <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
-            Rehepa Aerospace Ltd is a forward-looking Zambian aerospace and drone company
-            delivering cutting-edge RPAS-based services. We empower organisations to see more,
-            plan smarter, and operate safer through modern UAV technology.
+            Rehepa Aerospace Ltd is a Zambian aerospace and drone-technology company delivering
+            aerial data, surveying, mapping, inspection and monitoring solutions. We support clients
+            across government, mining, engineering, agriculture and commercial sectors using modern
+            UAV and geospatial workflows.
+          </p>
+          <p className="mt-4 max-w-3xl text-muted-foreground">
+            Our approach is <span className="font-semibold text-foreground">Capture</span>,{" "}
+            <span className="font-semibold text-foreground">Process</span>,{" "}
+            <span className="font-semibold text-foreground">Analyse</span> and{" "}
+            <span className="font-semibold text-foreground">Deliver</span>: planning safe missions
+            with the appropriate UAV and sensor; converting raw observations into structured
+            geospatial information; extracting measurements, anomalies, volumes and terrain
+            information; and delivering practical outputs for engineering, GIS, planning, operations
+            and management.
           </p>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-6 py-20 md:grid-cols-2">
         <div className="glass-panel rounded-[2rem] border border-border p-8 card-shadow">
-          <div className="text-xs font-semibold uppercase tracking-wider text-primary">Our Vision</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+            Our Vision
+          </div>
           <p className="mt-4 text-lg leading-relaxed">
             To become a trusted leader in aerospace services, recognised for excellence,
             reliability, and value-driven aerial solutions across Zambia and beyond.
           </p>
         </div>
         <div className="glass-panel rounded-[2rem] border border-border p-8 card-shadow">
-          <div className="text-xs font-semibold uppercase tracking-wider text-primary">Our Mission</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+            Our Mission
+          </div>
           <p className="mt-4 text-lg leading-relaxed">
             To deliver high-impact aerospace and drone services driven by innovation, safety, and
             professionalism, enabling smarter decisions through accurate aerial data.
@@ -96,13 +114,14 @@ function AboutPage() {
               src={cropImg}
               alt="Drone over agricultural land"
               className="w-full"
-              loading="lazy"
               width={1280}
               height={800}
             />
           </div>
           <div>
-            <div className="text-sm font-semibold uppercase tracking-wider text-primary">Our Values</div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Our Values
+            </div>
             <h2 className="mt-3 font-display text-4xl font-bold">What we stand for.</h2>
             <ul className="mt-8 space-y-4">
               {values.map((v) => (
@@ -120,21 +139,27 @@ function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="glass-panel rounded-[2rem] border border-border p-10 md:p-14">
-          <div className="text-sm font-semibold uppercase tracking-wider text-primary">Safety Policy</div>
-          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">Aviation safety, by design.</h2>
+          <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+            Safety Policy
+          </div>
+          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
+            Aviation safety, by design.
+          </h2>
           <p className="mt-5 max-w-3xl text-muted-foreground">
-            Rehepa Aerospace Ltd is fully committed to the highest standards of aviation safety.
-            Our management provides leadership, resources and oversight to ensure all RPAS
-            operations comply with ZCARs Part 18 and ICAO standards. Supervisors ensure adherence
-            to safety procedures, operational compliance, personnel competence, and a proactive
-            safety culture.
+            Rehepa Aerospace Ltd is fully committed to the highest standards of aviation safety. Our
+            management provides leadership, resources and oversight to ensure all RPAS operations
+            comply with ZCARs Part 18 and ICAO standards. Supervisors ensure adherence to safety
+            procedures, operational compliance, personnel competence, and a proactive safety
+            culture.
           </p>
         </div>
       </section>
 
       <section className="border-t border-border bg-card/30">
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="text-sm font-semibold uppercase tracking-wider text-primary">Our Team</div>
+          <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+            Our Team
+          </div>
           <h2 className="mt-3 font-display text-4xl font-bold">The people behind every flight.</h2>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -144,7 +169,13 @@ function AboutPage() {
                 className="glass-panel rounded-[1.75rem] border border-border p-6 text-center card-shadow"
               >
                 <div className="relative mx-auto h-48 w-48 overflow-hidden rounded-full">
-                  <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
+                  <PictureImage
+                    src={m.image}
+                    alt={m.name}
+                    className="h-full w-full object-cover"
+                    width={192}
+                    height={192}
+                  />
                 </div>
                 <div className="mt-4 font-semibold">{m.name}</div>
                 <div className="text-sm text-muted-foreground">{m.role}</div>
@@ -156,7 +187,9 @@ function AboutPage() {
 
       <section className="mx-auto max-w-7xl gap-12 px-6 py-20">
         <div className="text-center">
-          <div className="text-sm font-semibold uppercase tracking-wider text-primary">Our Pilots</div>
+          <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+            Our Pilots
+          </div>
           <h2 className="mt-3 font-display text-4xl font-bold">Licensed and mission-ready.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Every Rehepa mission is led by experienced, ZCAR-compliant remote pilots with a
@@ -203,6 +236,57 @@ function AboutPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-card/30">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
+          <div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Partner With Us
+            </div>
+            <h2 className="mt-3 font-display text-4xl font-bold">
+              Growing Zambia&apos;s aerial data capacity.
+            </h2>
+            <p className="mt-5 text-muted-foreground">
+              Rehepa Aerospace is expanding its technical capacity to take on larger and more
+              demanding assignments. We welcome clients seeking repeat survey and monitoring work,
+              as well as strategic, financial and equipment partners who want to help scale
+              professional drone and geospatial services in Zambia and beyond.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {industries.map((i) => (
+                <span
+                  key={i}
+                  className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium"
+                >
+                  {i}
+                </span>
+              ))}
+            </div>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground glow-shadow transition-transform hover:scale-[1.02]"
+            >
+              Discuss a partnership <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="glass-panel rounded-[2rem] border border-border p-8 card-shadow">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <Handshake className="h-5 w-5" />
+              </span>
+              <h3 className="font-display text-xl font-semibold">Investment priorities</h3>
+            </div>
+            <ul className="mt-6 space-y-3">
+              {investmentPriorities.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-sm">
+                  <Check className="mt-0.5 h-4 w-4 flex-none text-primary" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

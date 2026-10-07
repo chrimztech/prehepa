@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { company, services } from "@/lib/services";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -10,8 +11,10 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact | Rehepa Aerospace" },
       {
         name: "description",
-        content: "Get in touch with Rehepa Aerospace Ltd for drone and GIS services in Zambia.",
+        content:
+          "Contact Rehepa Aerospace Ltd in Lusaka for drone surveying, mapping, inspection and GIS services. Call or WhatsApp +260 972 830 832.",
       },
+      { property: "og:title", content: "Contact | Rehepa Aerospace" },
     ],
   }),
   component: ContactPage,
@@ -21,13 +24,13 @@ const contactLinks = [
   {
     icon: Phone,
     label: "Call",
-    value: "+260 972 830 832",
-    href: "tel:+260972830832",
+    value: company.phone,
+    href: company.phoneHref,
   },
   {
     label: "WhatsApp",
-    value: "+260 972 830 832",
-    href: "https://wa.me/260972830832",
+    value: company.phone,
+    href: company.whatsappHref,
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg
         viewBox="0 0 32 32"
@@ -42,13 +45,14 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "onijahzani@yahoo.com",
-    href: "mailto:onijahzani@yahoo.com",
+    value: company.email,
+    href: `mailto:${company.email}`,
   },
   {
     icon: MapPin,
     label: "Office",
-    value: "05/07 Simon Mwansa Kapwepwe Rd, Chainda, Lusaka",
+    value: company.address,
+    href: "https://www.google.com/maps/search/?api=1&query=Simon+Mwansa+Kapwepwe+Road+Chainda+Lusaka+Zambia",
   },
 ];
 
@@ -67,7 +71,7 @@ function ContactPage() {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\n\n${message}`,
     );
-    window.location.href = `mailto:onijahzani@yahoo.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
     setSent(true);
   }
 
@@ -78,7 +82,9 @@ function ContactPage() {
       <section className="section-shell border-b border-border bg-card/30">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">Contact</div>
-          <h1 className="mt-3 font-display text-5xl font-bold md:text-6xl">Let&apos;s plan your mission.</h1>
+          <h1 className="mt-3 font-display text-5xl font-bold md:text-6xl">
+            Let&apos;s plan your mission.
+          </h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
             Tell us about your project and we&apos;ll get back to you in the soonest possible time.
           </p>
@@ -91,8 +97,8 @@ function ContactPage() {
             <a
               key={c.label}
               href={c.href}
-              target={c.label === "WhatsApp" ? "_blank" : undefined}
-              rel={c.label === "WhatsApp" ? "noopener noreferrer" : undefined}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="glass-panel flex items-start gap-4 rounded-[1.5rem] border border-border p-5 transition-colors hover:border-primary/40 card-shadow"
             >
               <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10">
@@ -108,7 +114,9 @@ function ContactPage() {
           ))}
 
           <div className="glass-panel rounded-[1.5rem] border border-border p-6">
-            <div className="text-xs font-semibold uppercase tracking-wider text-primary">Operating Hours</div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Operating Hours
+            </div>
             <div className="mt-3 text-sm text-muted-foreground">Mon - Fri | 08:00 - 17:00 CAT</div>
             <div className="mt-1 text-sm text-muted-foreground">Field operations on request</div>
           </div>
@@ -127,10 +135,14 @@ function ContactPage() {
             <Field label="Email" name="email" type="email" required />
             <Field label="Phone" name="phone" type="tel" required />
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <label
+                htmlFor="service"
+                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
                 Service
               </label>
               <select
+                id="service"
                 name="service"
                 required
                 suppressHydrationWarning
@@ -140,33 +152,24 @@ function ContactPage() {
                 <option value="" disabled>
                   Select a service
                 </option>
-                <option>LiDAR Surveying</option>
-                <option>Topographic Survey</option>
-                <option>Orthomosaic Mapping</option>
-                <option>3D Modelling</option>
-                <option>Volumetric / Stockpile</option>
-                <option>Digital Elevation Models</option>
-                <option>Generating Contours</option>
-                <option>Digital Terrain Model</option>
-                <option>Crop Spraying</option>
-                <option>Multispectral Surveying</option>
-                <option>Aerial Filming</option>
-                <option>Surveillance</option>
-                <option>SLAM Survey</option>
-                <option>Cadastral & Engineering</option>
-                <option>Infrastructure Setting Out</option>
-                <option>Commercial Projects</option>
-                <option>Drone Servicing & Repair</option>
+                {services.map((s) => (
+                  <option key={s.title}>{s.title}</option>
+                ))}
+                <option>Partnership / Investment</option>
                 <option>Other</option>
               </select>
             </div>
           </div>
 
           <div className="mt-5">
-            <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <label
+              htmlFor="message"
+              className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+            >
               Project details
             </label>
             <textarea
+              id="message"
               name="message"
               rows={5}
               required
@@ -187,8 +190,7 @@ function ContactPage() {
           {sent && (
             <p className="mt-4 inline-flex items-center gap-2 text-sm text-flag-green">
               <CheckCircle className="h-4 w-4" />
-              Opening your email client... If nothing happens, email us directly at
-              {" "}onijahzani@yahoo.com.
+              Opening your email client... If nothing happens, email us directly at {company.email}.
             </p>
           )}
         </form>
@@ -212,10 +214,14 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <label
+        htmlFor={name}
+        className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+      >
         {label}
       </label>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { company } from "@/lib/services";
 
 const socialLinks = [
   {
@@ -75,8 +76,9 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-bold">REHEPA AEROSPACE LTD</div>
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
-            Forward-looking Zambian aerospace and drone company delivering cutting-edge RPAS-based
-            services for surveying, mapping, agriculture and inspection.
+            Zambian aerospace and drone-technology company delivering aerial data, surveying,
+            mapping, inspection and monitoring solutions for government, mining, engineering,
+            agriculture and commercial clients.
           </p>
           <div className="mt-6 brand-stripe h-1.5 w-32 rounded-full" />
         </div>
@@ -84,10 +86,26 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider">Explore</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/" className="hover:text-foreground">Home</Link></li>
-            <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
-            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-            <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+            <li>
+              <Link to="/" className="hover:text-foreground">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-foreground">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-foreground">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -96,15 +114,19 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 h-4 w-4 text-primary" />
-              <a href="tel:+260972830832" className="hover:text-foreground">+260 972 830 832</a>
+              <a href={company.phoneHref} className="hover:text-foreground">
+                {company.phone}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="mt-0.5 h-4 w-4 text-primary" />
-              <a href="mailto:onijahzani@yahoo.com" className="hover:text-foreground">onijahzani@yahoo.com</a>
+              <a href={`mailto:${company.email}`} className="hover:text-foreground">
+                {company.email}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-primary" />
-              <span>05/07 Simon Mwansa Kapwepwe Rd, Chainda, Lusaka</span>
+              <span>{company.addressShort}</span>
             </li>
           </ul>
         </div>
@@ -113,7 +135,9 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-5 text-sm text-muted-foreground md:flex-row">
           <div className="flex items-center gap-4">
-            <span>&copy; {new Date().getFullYear()} Rehepa Aerospace Ltd. All rights reserved.</span>
+            <span>
+              &copy; {new Date().getFullYear()} Rehepa Aerospace Ltd. All rights reserved.
+            </span>
           </div>
           <div className="flex items-center gap-4">
             {socialLinks.map((s) => (

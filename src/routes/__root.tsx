@@ -76,15 +76,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Rehepa Aerospace Ltd" },
       {
         name: "description",
-        content: "ZCAR-compliant Zambian drone company delivering LiDAR, topographic, orthomosaic, multispectral and crop-spraying services.",
+        content:
+          "Rehepa Aerospace Ltd — aerial intelligence, surveying and mapping. Professional drone and geospatial solutions for government, mining, engineering, agriculture, conservation and commercial clients in Zambia.",
       },
+      { name: "theme-color", content: "#0b1220" },
       { name: "author", content: "Rehepa Aerospace Ltd" },
       { property: "og:title", content: "Rehepa Aerospace Ltd" },
       {
         property: "og:description",
-        content: "Cutting-edge RPAS-based aerial data services across Zambia.",
+        content:
+          "Professional drone and geospatial solutions — LiDAR, mapping, inspection and monitoring — across Zambia.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Rehepa Aerospace Ltd" },
+      { property: "og:locale", content: "en_ZM" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@rehepa" },
     ],
@@ -106,10 +111,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const themeInitScript = `try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`;
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Apply the saved/system theme before first paint to avoid a light-mode flash. */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <HeadContent />
       </head>
       <body>

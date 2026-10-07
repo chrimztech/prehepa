@@ -59,8 +59,18 @@
   --flag-green: oklch(0.61 0.16 152);
   --flag-amber: oklch(0.83 0.15 82);
   --flag-red: oklch(0.61 0.22 28);
-  --gradient-hero: linear-gradient(135deg, oklch(0.98 0.01 90) 0%, oklch(0.91 0.03 82) 35%, oklch(0.84 0.05 55) 100%);
-  --gradient-brand: linear-gradient(90deg, var(--flag-green) 0%, var(--flag-amber) 52%, var(--flag-red) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.98 0.01 90) 0%,
+    oklch(0.91 0.03 82) 35%,
+    oklch(0.84 0.05 55) 100%
+  );
+  --gradient-brand: linear-gradient(
+    90deg,
+    var(--flag-green) 0%,
+    var(--flag-amber) 52%,
+    var(--flag-red) 100%
+  );
   --gradient-panel: linear-gradient(160deg, oklch(1 0 0 / 0.88), oklch(0.95 0.015 95 / 0.78));
   --shadow-glow: 0 24px 70px -28px oklch(0.68 0.18 62 / 0.45);
   --shadow-card: 0 24px 55px -34px oklch(0.22 0.02 235 / 0.32);
@@ -86,8 +96,17 @@
   --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 11%);
   --ring: oklch(0.79 0.16 68 / 70%);
-  --gradient-hero: linear-gradient(135deg, oklch(0.14 0.015 240) 0%, oklch(0.18 0.02 235) 40%, oklch(0.22 0.04 52) 100%);
-  --gradient-panel: linear-gradient(160deg, oklch(0.24 0.015 240 / 0.82), oklch(0.18 0.02 240 / 0.7));
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.14 0.015 240) 0%,
+    oklch(0.18 0.02 235) 40%,
+    oklch(0.22 0.04 52) 100%
+  );
+  --gradient-panel: linear-gradient(
+    160deg,
+    oklch(0.24 0.015 240 / 0.82),
+    oklch(0.18 0.02 240 / 0.7)
+  );
   --shadow-glow: 0 24px 70px -26px oklch(0.79 0.16 68 / 0.46);
   --shadow-card: 0 24px 55px -34px oklch(0 0 0 / 0.68);
 }
@@ -108,7 +127,11 @@
     background:
       radial-gradient(circle at top left, oklch(0.85 0.08 78 / 0.24), transparent 26%),
       radial-gradient(circle at 85% 12%, oklch(0.64 0.16 150 / 0.18), transparent 22%),
-      linear-gradient(180deg, oklch(from var(--color-background) l c h / 1), oklch(from var(--color-background) calc(l - 0.02) c h / 1));
+      linear-gradient(
+        180deg,
+        oklch(from var(--color-background) l c h / 1),
+        oklch(from var(--color-background) calc(l - 0.02) c h / 1)
+      );
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";

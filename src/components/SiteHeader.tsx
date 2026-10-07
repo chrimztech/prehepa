@@ -84,7 +84,9 @@ export function SiteHeader() {
                 activeOptions={{ exact: n.to === "/" }}
                 onClick={() => setOpen(false)}
                 className="rounded-2xl border border-transparent px-4 py-3 text-sm text-muted-foreground hover:border-border hover:bg-secondary hover:text-primary"
-                activeProps={{ className: "border-primary/25 bg-primary/10 text-primary font-semibold" }}
+                activeProps={{
+                  className: "border-primary/25 bg-primary/10 text-primary font-semibold",
+                }}
               >
                 {n.label}
               </Link>
