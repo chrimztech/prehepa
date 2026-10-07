@@ -62,7 +62,7 @@ function AboutPage() {
       <SiteHeader />
 
       <section className="section-shell border-b border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-20 md:py-28">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">About</div>
           <h1 className="mt-3 max-w-3xl font-display text-5xl font-bold tracking-tight md:text-6xl">
             A Zambian aerospace company built for the future.
@@ -86,7 +86,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-6 py-20 md:grid-cols-2">
+      <section className="mx-auto grid max-w-site gap-6 px-6 lg:px-10 py-20 md:grid-cols-2">
         <div className="glass-panel rounded-[2rem] border border-border p-8 card-shadow">
           <div className="text-xs font-semibold uppercase tracking-wider text-primary">
             Our Vision
@@ -108,7 +108,7 @@ function AboutPage() {
       </section>
 
       <section className="border-y border-border bg-card/30">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+        <div className="mx-auto grid max-w-site items-center gap-12 px-6 lg:px-10 py-20 md:grid-cols-2">
           <div className="overflow-hidden rounded-[2rem] border border-border card-shadow">
             <PictureImage
               src={cropImg}
@@ -137,7 +137,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-site px-6 lg:px-10 py-20">
         <div className="glass-panel rounded-[2rem] border border-border p-10 md:p-14">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">
             Safety Policy
@@ -156,7 +156,7 @@ function AboutPage() {
       </section>
 
       <section className="border-t border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-20">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">
             Our Team
           </div>
@@ -172,7 +172,7 @@ function AboutPage() {
                   <PictureImage
                     src={m.image}
                     alt={m.name}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                     width={192}
                     height={192}
                   />
@@ -185,7 +185,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl gap-12 px-6 py-20">
+      <section className="mx-auto max-w-site gap-12 px-6 lg:px-10 py-20">
         <div className="text-center">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">
             Our Pilots
@@ -207,11 +207,11 @@ function AboutPage() {
                 <PictureImage
                   src={p.image}
                   alt={p.name}
-                  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  width={800}
-                  height={500}
+                  className="aspect-square w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  width={339}
+                  height={384}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                 {p.lead && (
                   <div className="absolute left-4 top-4 rounded-full bg-primary/90 px-3 py-1 text-xs font-semibold text-primary-foreground backdrop-blur">
                     Lead Pilot
@@ -240,7 +240,7 @@ function AboutPage() {
       </section>
 
       <section className="border-t border-border bg-card/30">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-site gap-10 px-6 lg:px-10 py-20 lg:grid-cols-2">
           <div>
             <div className="text-sm font-semibold uppercase tracking-wider text-primary">
               Partner With Us

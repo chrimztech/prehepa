@@ -18,7 +18,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/72 backdrop-blur-2xl">
       <div className="brand-stripe h-0.5 w-full" />
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-site items-center justify-between px-6 lg:px-10 py-4">
         <Link to="/" className="group flex items-center gap-3">
           <div className="relative">
             <div className="absolute inset-0 rounded-2xl bg-primary/25 blur-xl transition-opacity group-hover:opacity-100" />
@@ -76,7 +76,7 @@ export function SiteHeader() {
 
       {open && (
         <div className="border-t border-border/60 bg-background/92 md:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5">
+          <nav className="mx-auto flex max-w-site flex-col gap-2 px-6 lg:px-10 py-5">
             {nav.map((n) => (
               <Link
                 key={n.to}

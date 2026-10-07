@@ -80,7 +80,7 @@ function ContactPage() {
       <SiteHeader />
 
       <section className="section-shell border-b border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-20 md:py-24">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">Contact</div>
           <h1 className="mt-3 font-display text-5xl font-bold md:text-6xl">
             Let&apos;s plan your mission.
@@ -91,7 +91,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_1.5fr]">
+      <section className="mx-auto grid max-w-site gap-10 px-6 lg:px-10 py-20 lg:grid-cols-[1fr_1.5fr]">
         <div className="space-y-6">
           {contactLinks.map((c) => (
             <a

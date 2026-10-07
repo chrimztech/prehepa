@@ -26,7 +26,7 @@ function ServicesPage() {
       <SiteHeader />
 
       <section className="section-shell border-b border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-20 md:py-28">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">
             Services
           </div>
@@ -40,8 +40,8 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-site px-6 lg:px-10 py-20">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {services.map((s, i) => (
             <div
               key={s.title}
@@ -72,7 +72,7 @@ function ServicesPage() {
       </section>
 
       <section className="border-t border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-16">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">
             Typical Deliverables
           </div>
@@ -93,7 +93,7 @@ function ServicesPage() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-6 py-16 text-center">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-16 text-center">
           <h2 className="font-display text-3xl font-bold md:text-4xl">
             Have a unique requirement?
           </h2>

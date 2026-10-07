@@ -58,7 +58,7 @@ function Index() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_top,transparent,rgba(0,0,0,0.28))]" />
         </div>
 
-        <div className="section-grid relative mx-auto grid max-w-7xl gap-16 px-6 pb-28 pt-20 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-36 md:pt-28">
+        <div className="section-grid relative mx-auto grid max-w-site gap-16 px-6 lg:px-10 pb-28 pt-20 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-36 md:pt-28">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-2 text-xs text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-flag-green" />
@@ -136,7 +136,7 @@ function Index() {
       </section>
 
       <section className="section-shell border-y border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-20">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
               <div className="text-sm font-semibold uppercase tracking-wider text-primary">
@@ -167,7 +167,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-site px-6 lg:px-10 py-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="text-sm font-semibold uppercase tracking-wider text-primary">
@@ -214,7 +214,7 @@ function Index() {
       </section>
 
       <section className="section-shell border-y border-border bg-card/30">
-        <div className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-20">
           <div className="text-sm font-semibold uppercase tracking-wider text-primary">
             Core Capabilities
           </div>
@@ -246,7 +246,7 @@ function Index() {
       </section>
 
       <section className="section-shell relative">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2">
+        <div className="mx-auto grid max-w-site items-center gap-12 px-6 lg:px-10 py-24 md:grid-cols-2">
           <div className="relative overflow-hidden rounded-[2rem] border border-border card-shadow">
             <PictureImage
               src={lidarImg}
@@ -283,7 +283,7 @@ function Index() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-site px-6 lg:px-10 py-24">
           <div className="text-center">
             <div className="text-sm font-semibold uppercase tracking-wider text-primary">
               Industries
@@ -305,7 +305,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-24">
+      <section className="mx-auto max-w-site px-6 lg:px-10 pb-24">
         <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-border p-10 md:p-16">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-flag-green/20 blur-3xl" />

@@ -72,7 +72,7 @@ const socialLinks = [
 export function SiteFooter() {
   return (
     <footer className="section-shell border-t border-border bg-card/30">
-      <div className="section-grid mx-auto grid max-w-7xl gap-10 rounded-[2rem] px-6 py-14 md:grid-cols-4">
+      <div className="section-grid mx-auto grid max-w-site gap-10 rounded-[2rem] px-6 lg:px-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-bold">REHEPA AEROSPACE LTD</div>
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
@@ -133,7 +133,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-5 text-sm text-muted-foreground md:flex-row">
+        <div className="mx-auto flex max-w-site flex-col items-center justify-between gap-4 px-6 lg:px-10 py-5 text-sm text-muted-foreground md:flex-row">
           <div className="flex items-center gap-4">
             <span>
               &copy; {new Date().getFullYear()} Rehepa Aerospace Ltd. All rights reserved.
