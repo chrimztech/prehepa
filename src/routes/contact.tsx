@@ -5,7 +5,14 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { company, services } from "@/lib/services";
 
+const serviceOptions = [...services.map((s) => s.title), "Partnership / Investment", "Other"];
+
 export const Route = createFileRoute("/contact")({
+  // ?service=<title> pre-selects the service (linked from each service page).
+  validateSearch: (search: Record<string, unknown>): { service?: string } =>
+    typeof search.service === "string" && serviceOptions.includes(search.service)
+      ? { service: search.service }
+      : {},
   head: () => ({
     meta: [
       { title: "Contact | Rehepa Aerospace" },
@@ -58,6 +65,10 @@ const contactLinks = [
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  // Re-check against the options: during SSR the raw query value can reach the component,
+  // and an unknown value would leave no option selected (the browser then shows the first one).
+  const { service } = Route.useSearch();
+  const preselected = service && serviceOptions.includes(service) ? service : "";
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -142,21 +153,20 @@ function ContactPage() {
                 Service
               </label>
               <select
+                key={preselected}
                 id="service"
                 name="service"
                 required
                 suppressHydrationWarning
                 className="mt-2 w-full rounded-2xl border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:border-primary"
-                defaultValue=""
+                defaultValue={preselected}
               >
                 <option value="" disabled>
                   Select a service
                 </option>
-                {services.map((s) => (
-                  <option key={s.title}>{s.title}</option>
+                {serviceOptions.map((o) => (
+                  <option key={o}>{o}</option>
                 ))}
-                <option>Partnership / Investment</option>
-                <option>Other</option>
               </select>
             </div>
           </div>

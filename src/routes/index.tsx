@@ -13,7 +13,13 @@ import {
 } from "@/lib/services";
 import { PictureImage } from "@/lib/image-utils";
 import heroImg from "@/assets/hero-drone.webp";
-import lidarImg from "@/assets/lidar-mapping.webp";
+import pointCloudImg from "@/assets/projects/lidar-rgb-point-cloud.webp";
+
+// Feature services that have real project imagery first, topped up to six from the full list.
+const featuredServices = [
+  ...services.filter((s) => s.gallery.length > 0),
+  ...services.filter((s) => s.gallery.length === 0),
+].slice(0, 6);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -186,9 +192,11 @@ function Index() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 6).map((s) => (
-            <div
-              key={s.title}
+          {featuredServices.map((s) => (
+            <Link
+              key={s.slug}
+              to="/services/$slug"
+              params={{ slug: s.slug }}
               className="group glass-panel overflow-hidden rounded-[1.75rem] border border-border transition-all hover:-translate-y-1.5 hover:border-primary/40 card-shadow"
             >
               <div className="relative h-48 w-full overflow-hidden bg-muted">
@@ -205,10 +213,10 @@ function Index() {
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
+                <h3 className="mt-5 text-lg font-semibold group-hover:text-primary">{s.title}</h3>
                 <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{s.desc}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -249,8 +257,8 @@ function Index() {
         <div className="mx-auto grid max-w-site items-center gap-12 px-6 lg:px-10 py-24 md:grid-cols-2">
           <div className="relative overflow-hidden rounded-[2rem] border border-border card-shadow">
             <PictureImage
-              src={lidarImg}
-              alt="LiDAR terrain visualization"
+              src={pointCloudImg}
+              alt="Colourised LiDAR point cloud of a survey site"
               className="w-full"
               width={1280}
               height={800}

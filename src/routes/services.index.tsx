@@ -5,14 +5,14 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { PictureImage } from "@/lib/image-utils";
 import { deliverables, services } from "@/lib/services";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services | Rehepa Aerospace" },
       {
         name: "description",
         content:
-          "LiDAR surveying, multispectral and thermal imaging, aerial surveillance, conservation monitoring, topographic and corridor surveys, 3D modelling, infrastructure inspection, mineral exploration, stockpile volumes and GIS support.",
+          "LiDAR surveying, multispectral and thermal imaging, aerial surveillance, conservation monitoring, topographic, corridor and bathymetric surveys, 3D modelling, infrastructure inspection, mineral exploration, geophysical surveys, stockpile volumes and GIS support.",
       },
       { property: "og:title", content: "Services | Rehepa Aerospace" },
     ],
@@ -43,8 +43,10 @@ function ServicesPage() {
       <section className="mx-auto max-w-site px-6 lg:px-10 py-20">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {services.map((s, i) => (
-            <div
-              key={s.title}
+            <Link
+              key={s.slug}
+              to="/services/$slug"
+              params={{ slug: s.slug }}
               className="group glass-panel rounded-[1.75rem] border border-border p-6 transition-all hover:-translate-y-1.5 hover:border-primary/40 card-shadow"
             >
               <div className="mb-4 aspect-video overflow-hidden rounded-[1.25rem] bg-muted">
@@ -64,9 +66,9 @@ function ServicesPage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h2 className="mt-4 text-lg font-semibold">{s.title}</h2>
+              <h2 className="mt-4 text-lg font-semibold group-hover:text-primary">{s.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
